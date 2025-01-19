@@ -1,0 +1,26 @@
+.chef-item-container {
+  align-items: center;
+  border-radius: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    margin: 10px;
+    width: 100%;
+    color: white;
+    padding: 20px;
+
+    box-shadow:  
+    0 4px 8px var(--shadow-color-outer);
+  }
+
+  #name{
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  #username, #email{
+    font-weight: 400;
+    font-size: 12px;
+    padding: 0;
+  }
+  

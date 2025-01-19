@@ -1,0 +1,31 @@
+:root {
+
+    --background-color-app: #ffffff; 
+    --background-color-main: #f3f3f3;
+    --background-color-profile-picture: #d0c8a5; 
+    --primary-color: #4e3d2a; 
+    
+ 
+    --button-bg: #f4c542;
+    --button-hover-bg: #e0b330; 
+    
+    
+    --input-bg: #fff9e6; 
+    --input-border: #d3d3d3; 
+    --input-border-focus: #4e3d2a; 
+    
+
+    --text-color-default: #2a2a2a;
+    --text-color-light: #ffffff; 
+    --text-color-muted: #777777;
+    
+    --remove-color: #ff4747;
+
+    --shadow-color-inner: rgba(255, 255, 255, 0.5);
+    --shadow-color-outer: rgba(0, 0, 0, 0.1); 
+    
+
+    --error-color: #ff4747; 
+    --success-color: #6bbf73; 
+  }
+  

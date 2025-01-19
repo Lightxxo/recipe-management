@@ -1,0 +1,20 @@
+.recipe-list ul {
+    list-style-type: none;
+
+}
+
+.recipe-list{
+    justify-items: center;
+    text-align: center;
+
+}
+
+#recipe-section-title{
+    font-family: cursive;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+
+
+

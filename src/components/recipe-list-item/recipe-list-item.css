@@ -1,0 +1,62 @@
+.list-item{
+    border-radius: 15px;
+    background: var(--input-bg);
+    width: 400px;
+    margin: 20px;
+    
+
+    
+
+    box-shadow: 
+    inset 0 0 15px var(--shadow-color-inner), 
+    0 4px 8px var(--shadow-color-outer); 
+}
+
+.list-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.list-text p {
+    padding: 0px 30px;
+}
+
+.list-remove{
+    background-color: var(--remove-color);
+    position: relative;
+    left: 190px;
+}
+
+.list-remove:hover{
+    transform: scale(1.1);
+}
+
+
+.list-remove img{
+    position: relative;
+    right: 3px;
+}
+
+.list-item button{
+    
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 50%;
+    
+    box-shadow: 
+    0 3px 8px red;
+}
+
+
+#title{
+    font-weight: 800;
+    /* background-color: brown; */
+}
+
+.list-item img{
+    width: 10px;
+}
+

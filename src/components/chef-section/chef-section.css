@@ -1,0 +1,31 @@
+.chef-section{
+    background: var(--input-bg);
+
+    width: 355px;
+    height: 100px;
+    position: relative;
+    bottom: 10px;
+    
+    border-radius: 20px;
+    box-shadow: 
+    inset 0 0 15px var(--shadow-color-inner), 
+    0 4px 8px var(--shadow-color-outer); 
+    
+
+}
+
+.c-section{
+    display: flex;
+    flex-direction: column;
+}
+
+#chefs{
+    text-align: center;
+    font-weight: 800;
+    font-size: 28px;
+    position: relative;
+
+    top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
