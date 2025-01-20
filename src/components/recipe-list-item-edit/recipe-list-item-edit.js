@@ -11,7 +11,7 @@ export default function RecipeListItemEdit({ index, flag, value, hasClickedSette
         const textarea = textAreaRef.current;
         
         textarea.style.height = 'auto';
-        textarea.style.height = `${textarea.scrollHeight}px`;
+        textarea.style.height = `${textarea.scrollHeight + 10}px`;
     };
 
     function handleBlur() {
@@ -19,16 +19,18 @@ export default function RecipeListItemEdit({ index, flag, value, hasClickedSette
             let retObj = recipe.slice();
             if (flag === 'title') {
                 retObj[index].title = inputValue;
-            } else if (flag === 'instruction') {
+            } else if (flag === 'instructions') {
                 retObj[index].instructions = inputValue;
-            } else if (flag === 'ingredient') {
+            } else if (flag === 'ingredients') {
                 retObj[index].ingredients = inputValue;
             }
 
             return retObj;
         });
 
-        hasClickedSetter(false);
+        hasClickedSetter((oldVal)=>{
+            return {...oldVal, [flag]:!(oldVal[flag])}
+        })
     }
 
     function handleChange(event) {

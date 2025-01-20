@@ -5,32 +5,35 @@ import './recipe-input.css'
 
 export default function RecipeInput(){
     const {setRecepies} = useContext(RecipesContext)
-    const [recipieTitle, setRecipieTitle] = useState('');
-    const [ingredients, setIngredients] = useState('');
-    const [instructions, setInstructions] = useState('');
+    const [inputs,setInputs]=useState({
+        
+    })
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (recipieTitle && ingredients && instructions) {
+        if (inputs.title && inputs.ingredients && inputs.instructions) {
             
             
             const newRecipe = {
                 
-                title: recipieTitle,
-                ingredients: ingredients,
-                instructions: instructions,
+                title: inputs.title,
+                ingredients: inputs.ingredients,
+                instructions: inputs.instructions,
             };
 
-            
-
             setRecepies((recipes)=> [...recipes, newRecipe]);
-            setRecipieTitle('');
-            setIngredients('');
-            setInstructions('');
+            setInputs({title:'',
+                ingredients: '',
+                instructions: '',
+            });
         }
     };
+    function handleChange(e){
+        setInputs((inputs)=>({...inputs,[e.target.name]:e.target.value}))
+    }
+    console.log(inputs)
     return(
         <div className="recipe-input-container">
             <h1>Enter a new recipe!! 📜🍽️</h1>
@@ -40,10 +43,10 @@ export default function RecipeInput(){
                     <input
                         type="text"
                         id="recipe-name"
-                        name="recipe-name"
+                        name="title"
                         placeholder="Enter recipe"
-                        value={recipieTitle}
-                        onChange={(e) => setRecipieTitle(e.target.value)}
+                        value={inputs['title']}
+                        onChange={handleChange}
                         required
                     />
                 </div>
@@ -55,8 +58,8 @@ export default function RecipeInput(){
                         name="ingredients"
                         placeholder="What are the ingredients?"
                         rows="2"
-                        value={ingredients}
-                        onChange={(e) => setIngredients(e.target.value)}
+                        value={inputs['ingredients']}
+                        onChange={handleChange}
                         required
                     ></textarea>
                 </div>
@@ -68,8 +71,8 @@ export default function RecipeInput(){
                         name="instructions"
                         placeholder="How do we make it?"
                         rows="2"
-                        value={instructions}
-                        onChange={(e) => setInstructions(e.target.value)}
+                        value={inputs['instructions']}
+                        onChange={handleChange}
                         required
                     ></textarea>
                 </div>

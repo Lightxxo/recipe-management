@@ -13,7 +13,8 @@
     resize: none;             
     overflow: hidden;          
     box-sizing: border-box;
-    white-space: pre-wrap;     
+    white-space: pre-wrap;
+    text-align: center;     
 }
 
 

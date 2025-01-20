@@ -6,10 +6,13 @@ import RecipeListItemEdit from '../recipe-list-item-edit/recipe-list-item-edit';
 
 
 export default function RecipeListItem({item, index}){
-    const { setRecepies} = useContext(RecipesContext);
-    const [titleHasClicked, setTitleHasClicked] = useState(false)
-    const [ingredientsHasClicked, setIngredientsHasClicked] = useState(false)
-    const [instructionsHasClicked, setInstructionsHasClicked] = useState(false)
+    const { setRecepies } = useContext(RecipesContext);
+    const [hasClicked, setHasClicked] = useState({
+        title: false,
+        ingredients: false,
+        instructions: false
+    })
+
 
     function handleRemove (){
         setRecepies((recipes) => { 
@@ -18,17 +21,25 @@ export default function RecipeListItem({item, index}){
         })
     }
 
-    function handleTitleOnClick(){
-        setTitleHasClicked(true);
+    function handleOnClick(flag){
+        setHasClicked((oldVal)=>{
+            let myVal = oldVal[flag];
+            if(myVal === false) return {...oldVal, [flag]:!(myVal)}
+            else return oldVal;
+            
+        })
     }
 
-    function handleIngredientOnClick(){
-        setIngredientsHasClicked(true);
+
+    function selector(flag, value){
+        return(
+            <div id={flag} onClick={()=>{handleOnClick(flag)}}>
+            {hasClicked[flag] ? <RecipeListItemEdit index={index} flag={flag} value={value} recipeSetter={setRecepies} hasClickedSetter={setHasClicked}></RecipeListItemEdit>
+            : <RecipeListItemEl text={value}></RecipeListItemEl>}
+        </div>
+        )
     }
 
-    function handleInstructionOnClick(){
-        setInstructionsHasClicked(true);
-    }
 
 
 
@@ -38,7 +49,37 @@ export default function RecipeListItem({item, index}){
             <img src='https://img.icons8.com/?size=100&id=79023&format=png&color=000000'></img>
         </button>
         <div className='list-text'>
-            <div id='title' onClick={handleTitleOnClick}>
+            
+            {selector( 'title' , item.title)}
+            {selector( 'ingredients' , item.ingredients)}
+            {selector( 'instructions' , item.instructions)}
+ 
+        </div>
+
+        
+
+    </div>);
+}
+
+
+    // const [titleHasClicked, setTitleHasClicked] = useState(false)
+    // const [ingredientsHasClicked, setIngredientsHasClicked] = useState(false)
+    // const [instructionsHasClicked, setInstructionsHasClicked] = useState(false)
+
+
+    // function handleTitleOnClick(){
+    //     setTitleHasClicked(true);
+    // }
+
+    // function handleIngredientOnClick(){
+    //     setIngredientsHasClicked(true);
+    // }
+
+    // function handleInstructionOnClick(){
+    //     setInstructionsHasClicked(true);
+    // }
+
+{/* <div id='title' onClick={handleTitleOnClick}>
                 {titleHasClicked ? <RecipeListItemEdit index={index} flag={'title'} value={item.title} recipeSetter={setRecepies} hasClickedSetter={setTitleHasClicked}></RecipeListItemEdit>
                 : <RecipeListItemEl text={item.title}></RecipeListItemEl>}
             </div>
@@ -49,10 +90,4 @@ export default function RecipeListItem({item, index}){
             <div id = 'instr' onClick={handleInstructionOnClick} >
                 {instructionsHasClicked? <RecipeListItemEdit index={index} flag={'instruction'} value={item.instructions} recipeSetter={setRecepies} hasClickedSetter={setInstructionsHasClicked}></RecipeListItemEdit>
                 : <RecipeListItemEl text={item.instructions}></RecipeListItemEl>}
-            </div>
-        </div>
-
-        
-
-    </div>);
-}
+            </div> */}
